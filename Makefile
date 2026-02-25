@@ -1,8 +1,11 @@
 # infra/Makefile
 # Terraform helpers for ./tfs using shared tfvars
 
+REPO_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+PRIVATE  ?= $(REPO_DIR)private
+
 TF_DIR := tfs
-TFVARS := $(HOME)/private/shared/infra/ipam.tfvars
+TFVARS := $(PRIVATE)/ipam.tfvars
 
 .PHONY: init plan apply destroy output fmt validate
 

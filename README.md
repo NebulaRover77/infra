@@ -11,7 +11,7 @@ Small infra toolbox repo for:
 
 - `Makefile`  
   Convenience targets that run Terraform from `./tfs` and always use a shared tfvars file:
-  `$(HOME)/private/shared/infra/ipam.tfvars`
+  `$(PRIVATE)/ipam.tfvars`
 
 - `tfs/`  
   Terraform config that creates an AWS VPC IPAM with:
@@ -39,7 +39,9 @@ Small infra toolbox repo for:
 
 This repo expects the values file to live outside git:
 
-`~/private/shared/infra/ipam.tfvars`
+`./private/ipam.tfvars`
+
+(`./private` is a tracked symlink to your private infra directory.)
 
 Example:
 
@@ -65,7 +67,7 @@ make apply
 make output
 
 Notes:
-	•	make plan/apply/destroy automatically adds -var-file="$(HOME)/private/shared/infra/ipam.tfvars".
+	•	make plan/apply/destroy automatically adds -var-file="$(PRIVATE)/ipam.tfvars".
 	•	make init does not pass tfvars (Terraform doesn’t need them for init).
 
 delete-default-vpc.sh usage
