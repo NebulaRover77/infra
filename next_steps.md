@@ -11,7 +11,7 @@ aws sts get-caller-identity --profile AWSPowerUserAccess-123456789012
 
 	•	Confirm shared tfvars exists and looks right:
 
-cat ~/private/shared/infra/ipam.tfvars
+cat ./private/ipam.tfvars
 
 1) (Optional but recommended) Configure remote Terraform state
 
